@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses and Professor Reviews</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #00300a;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2em;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .course-list, .professor-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .course-item, .professor-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em;
+            flex: 1 1 calc(33% - 2em);
+            box-sizing: border-box;
+        }
+
+        .rating {
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin: 0.5em 0 0.2em;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.5em;
+            background-color: #00320c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a04560;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Courses and Professor Reviews</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#professors">Professors</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="#register">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>GITAM</h2>
+        <p>Find and share reviews on courses and professors.</p>
+    </section>
+ <section id="login">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section id="register">
+        <h2>Register</h2>
+        <form id="register-form">
+            <label for="name">Name:</label>
+            <input type="text" id="register-name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="register-email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="register-password" name="password" required>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Course and Professor Reviews</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        // Email validation regular expression
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        console.log('Login Form Data:', { email, password });
+        
+    });
+});
+
+
+    </script>
+</body>
+</html>
+</div>
+<section id="review">
+    <h2>Submit a Review</h2>
+    <form id="review-form">
+        <label for="course">Select Course:</label>
+        <select id="course" name="course" required>
+            <option value="" selected disabled>Select a course</option>
+            <option value="data-structures">Data Structures</option>
+            <option value="operating-system">Operating System</option>
+            <option value="computer-networks">Computer Networks</option>
+            <option value="Java">Java</option>
+            <option value="Probability and statistics">Probability and statistics</option>
+            <option value="Principles of Quantum Mechanics">Principles of Quantum Mechanics</option>
+        </select>
+        <label for="professor">Select Professor:</label>
+        <select id="professor" name="professor" required>
+            <option value="" selected disabled>Select a professor</option>
+            <option value="Devendra.N">Devendra.N</option>
+            <option value="Satyaraj.k">Satyaraj.k</option>
+           
+        </select>
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
+</section>
